@@ -9,5 +9,9 @@ CREATE TABLE [dbo].[Product](
 	[Weight] [decimal](8, 2) NULL,
 	[ProductCategoryID] [int] NULL,
 	[ProductModelID] [int] NULL,
-	[ModifiedDate] [datetime] NOT NULL
+	[ModifiedDate] [datetime] NOT NULL,
+	[Calories] int not null,
+    [PostProcessedOn] datetimeoffset null,
+    [AdjustedSteps] int null,
+    [AdjustedDistance] decimal(9,6) null
 )
