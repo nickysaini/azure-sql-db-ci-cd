@@ -7,9 +7,16 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       name: git checkout
+    - uses: azure/login@v1
+      name: Azure login
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
     - uses: azure/sql-action@v2
       name: deploy sql files
       with:        
         connection-string: ${{ secrets.AZURE_SQL_CONNECTION_STRING }}
         path: './db-deploy/Database.sqlproj'
         action: 'publish'
+    - name: logout
+      run: |
+        az logout
